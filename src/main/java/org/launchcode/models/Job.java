@@ -1,5 +1,7 @@
 package org.launchcode.models;
 
+import javax.validation.constraints.Size;
+
 /**
  * Created by LaunchCode
  */
@@ -8,6 +10,7 @@ public class Job {
     private int id;
     private static int nextId = 1;
 
+    //@Size(min = 1 , max = 50, message = "please enter a sweet name for this job")
     private String name;
     private Employer employer;
     private Location location;

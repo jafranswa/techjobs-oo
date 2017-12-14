@@ -24,10 +24,47 @@
                         th:text="${employer.value}"></option>
             </select>
         </div>
-
+        <!-- I believe this is correct but I have not processed the form yet,
+        so the jury is still out -->
         <!-- TODO #5 - Create <select> dropdowns for other job fields -->
-
+        <!-- the above code is the employerId code I need to mimic discussed
+        in the instructions -->
+        <div class="form-group">
+            <label th:for="location">Location</label>
+            <select th:field="*{location}">
+                <option th:each="location : *{locations}"
+                        th:value="${location.id}"
+                        th:text="${location.value}"></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label th:for="coreCompetency">Skill</label>
+            <select th:field="*{coreCompetency}">
+                <option th:each="coreCompetency : *{coreCompetencies}"
+                        th:value="${coreCompetency.id}"
+                        th:text="${coreCompetency.value}"></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label th:for="positionType">Position Type</label>
+            <select th:field="*{positionType}">
+                <option th:each="positionType : *{positionTypes}"
+                        th:value="${positionType.id}"
+                        th:text="${positionType.value}"></option>
+            </select>
+        </div>
+        <!--div class="form-group">
+            <label th:for="employer">test</label>
+            <select th:field="*{employerId}">
+                <option th:each="employer : *{employers}"
+                        th:value="${employer.id}"
+                        th:text="${employer.value}"></option>
+            </select>
+        </div-->
         <input type="submit" value="Add Job" />
+        <!--input type="hidden"
+               th:each="employer : *{employers}"
+               th:value="${employer.value}" /-->
     </form>
 
 </div>

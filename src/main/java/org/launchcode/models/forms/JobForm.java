@@ -15,18 +15,65 @@ import java.util.ArrayList;
  */
 public class JobForm {
 
-    @NotNull
-    @Size(min=1, message = "Name may not be empty")
+    @NotNull(message = "Name may not be empty nor a null value... actually if its null its the developers fault")
+    @Size(min=1, max = 50, message = "Name may not be empty")
     private String name;
 
-    @NotNull
+    //@NotNull
     private int employerId;
+    //@NotNull
+    //@Size(min=1, message = "Employer field must not be empty")
+    private String employer;
+    //@NotNull
+    //@Size(min=1, message = "Location field must not be empty")
+    private String location;
+    //@NotNull
+    //@Size(min=1, message = "Show me what you got field must not be empty")
+    private String coreCompetency;
+    //@NotNull
+    //@Size(min=1, message = "position field must not be empty")
+    private String positionType;
 
+    /*  I dunno if I have the correct attributes or for certain wtf
+        they meant by display names but here she goes...
+        */
     /*
         TODO #3 - Included other fields needed to create a job,
         with correct validation attributes and display names.
         Don't forget to add getters and setters
      */
+
+    public String getEmployer() {
+        return employer;
+    }
+
+    public void setEmployer(String employer) {
+        this.employer = employer;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getCoreCompetency() {
+        return coreCompetency;
+    }
+
+    public void setCoreCompetency(String coreCompetency) {
+        this.coreCompetency = coreCompetency;
+    }
+
+    public String getPositionType() {
+        return positionType;
+    }
+
+    public void setPositionType(String positionType) {
+        this.positionType = positionType;
+    }
 
     private ArrayList<Employer> employers;
     private ArrayList<Location> locations;
@@ -38,10 +85,14 @@ public class JobForm {
         JobData jobData = JobData.getInstance();
 
         /*
-            TODO #4 - populate the other ArrayList collections needed in the view
+            TODONE #4 - populate the other ArrayList collections needed in the view
         */
 
+
         employers = jobData.getEmployers().findAll();
+        locations = jobData.getLocations().findAll();
+        coreCompetencies = jobData.getCoreCompetencies().findAll();
+        positionTypes = jobData.getPositionTypes().findAll();
 
     }
 
